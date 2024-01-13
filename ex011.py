@@ -1,11 +1,16 @@
-def give_me_discount(old_price, discount_percentage):
-  discount = old_price * (discount_percentage/100)
-  return old_price - discount
+def how_much_paint_do_i_need( paint_liter_per_area):
+  wall_area = calc_area(height, width)
+  return paint_liter_per_area * wall_area
 
-old_price = int(input('Tell me the current prince: '))
-discount = int(input('Tell me the percentage of discount: '))
+def calc_area(height, width):
+  return height * width
 
-new_price = give_me_discount(old_price, discount)
+height = float(input('Tell me the height of your wall: '))
+width = float(input('Tell me the width of your wall: '))
+paint_liter_per_area = float(input('Tell me how much paint you use for 1m² of wall: '))
 
-print('You will now pay only ${}! \n Because your {}% of discount you\'re paying ${} less'.
-      format(new_price, discount, old_price - new_price))
+area = calc_area(height, width)
+paint_amount = how_much_paint_do_i_need(paint_liter_per_area)
+
+print(f'Your wall is {width}x{height}m and {area}m²')
+print(f'You will need {paint_amount}L of paint')

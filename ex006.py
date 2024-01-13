@@ -1,4 +1,3 @@
 number = int(input('Type some number: '))
 
-print('Double: {} , triple: {}, square root: {}'.
-      format(number*2, number*3, number**2))
+print(f'Double: {number*2} , triple: {number*3}, square root: {number**(1/2)}, pow: {pow(number, 2)}')

@@ -1,10 +1,9 @@
-def how_much_paint_do_i_need(height, width, paint_liter_per_area):
-  area = height * width
-  return area/paint_liter_per_area
+money = float(input('How much $$$ do you have in your wallet? '))
 
-height = int(input('Tell me the height of your wall: '))
-width = int(input('Tell me the width of your wall: '))
-paint_liter_per_area = int(input('Tell me how much paint you use for 1m2 of wall: '))
+def convert_to_berinjelas(money, berinjela_quotation):
+  berinjelas = money / berinjela_quotation
+  return berinjelas
 
-print('You will need {}L of paint'.
-      format(how_much_paint_do_i_need(height, width, paint_liter_per_area)))
+berinjelas = convert_to_berinjelas(money, 3.33)
+
+print(f'According to my calculations you have {berinjelas:.2f} berinjelas')

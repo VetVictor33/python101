@@ -1,4 +1,3 @@
 chosen_number = int(input('Type a number: '))
 
-print('Antecessor {} predecessor {}'.
-      format(chosen_number - 1, chosen_number + 1))
+print(f'Você digitou {chosen_number} Antecessor {chosen_number - 1} sucessor {chosen_number + 1}')

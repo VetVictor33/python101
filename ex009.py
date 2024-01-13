@@ -1,7 +1,7 @@
 def printTable(number):
   count = 1
   while count <= 10:
-    print('{} * {} is {}'.format(number, count, count * number))
+    print('{} * {:2} = {:2}'.format(number, count, count * number))
     count += 1
   return
 
