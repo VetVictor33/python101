@@ -1,4 +1,4 @@
-name = input('Qual seu nome? ')
+name = input('Qual seu nome? ').strip()
 
 name_array = name.split(' ')
 
