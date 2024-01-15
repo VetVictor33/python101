@@ -4,7 +4,7 @@
 ## ANSI pattern
 
 #style          text          background
-#0 - none       33 - white   - 40
+#0 - none       30 - white   - 40
 #1 - bold       31 - red     - 41
 #4 - underline  32 - green   - 42
 #7 negative     33 - yellow  - 43
