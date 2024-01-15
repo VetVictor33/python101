@@ -8,7 +8,9 @@ def cal_ticket(speed, max_speed, infraction_index):
 max_speed = 80
 speed = float(input('Qual a velocidade do carro, guarda? '))
 
-if(speed > max_speed):
-  print(f'Multa no valor de R${cal_ticket(speed, max_speed, 7)}!')
+ticket = cal_ticket(speed, max_speed, 7)
+
+if(ticket):
+  print(f'Multa no valor de R${ticket}!')
 else: 
   print('Sem multa hoje!')

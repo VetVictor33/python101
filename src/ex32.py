@@ -1,3 +1,5 @@
+from datetime import date
+
 def is_leap_year(year):
   multiple_four = year % 4 == 0
   multiple_hundred = year % 100 == 0
@@ -10,4 +12,8 @@ def is_leap_year(year):
 
 year = int(input('Digite um ano para saber se ele é bissexto. Ex: 2013 '))
 
-print(f'{'É bissexto' if is_leap_year(year) else 'Não é bissexto'}')
+print(f'{year} {'É bissexto' if is_leap_year(year) else 'Não é bissexto'}')
+
+year = date.today().year
+
+print(f'{year} {'É bissexto' if is_leap_year(year) else 'Não é bissexto'}')
