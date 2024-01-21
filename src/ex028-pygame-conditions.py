@@ -12,7 +12,7 @@ print(f'{'This is THE GAME':=^40}')
 print('<', '=' * 40, '>', '\033[m')
 
 while(True):
-  chosen = int(input('\033[0;32;43mGuess a number between 0 and 6 \033[m'))
+  chosen = int(input('\033[0;32;43mGuess a number between 0 and 6\033[m '))
   random_number = randint(0, 6)
 
 
