@@ -17,5 +17,5 @@ for craziness in my_crazy_tupla:
     smaller = craziness
 
 print(f'Minha tupla aleatória: {my_crazy_tupla}')
-print(f'Maior número {greater}')
-print(f'Menor número {smaller}')
+print(f'Maior número {greater}, em outra palavras {max(my_crazy_tupla)}')
+print(f'Menor número {smaller}, em outras palavras {min(my_crazy_tupla)}')
