@@ -2,10 +2,10 @@ numbers = []
 
 for c in range (5):
   n = input(f'Digite um número número[{c+1}/5]: ')
-  if n.isdigit():
+  try:
     numbers.append(int(n))
-  else:
-    print('Só estamos aceitando números no momento, não seja moleque e siga as instruções')
+  except:
+    print('Só estamos aceitando números no momento, siga as instruções')
     continue
 
 print(f'Lista: {numbers}')

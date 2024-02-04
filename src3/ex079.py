@@ -3,10 +3,11 @@ numbers = []
 while True:
   n = input(f'Digite um número número: ')
 
-  if not n.isdigit():
+  try:
+    n = int(n)
+  except:
     continue
 
-  n = int(n)
   if n not in numbers:
     numbers.append(n)
   
