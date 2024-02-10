@@ -54,4 +54,4 @@ def convert_to_currency(value:float, currency='R$') -> str:
     Returns:
         str: Formatted value
     """
-    return f'{currency}{value:.2f}'
+    return f'{currency}{value:.2f}'.replace('.', ',')
