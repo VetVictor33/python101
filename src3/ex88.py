@@ -1,4 +1,5 @@
 from random import randint
+from time import sleep
 
 def mega_sena(tries):
     games = []
@@ -10,6 +11,9 @@ def mega_sena(tries):
                 games[c].append(n)
     return games
 
-games = int(input('Quantos jogos você quer apostar? '))
-print(f'Tomae: {mega_sena(games)}')
-    
+n_games = int(input('Quantos jogos você quer apostar? '))
+games = mega_sena(n_games)
+
+for game in games:
+    print(game)
+    sleep(1)
