@@ -1,0 +1,8 @@
+Zaraba;33;caçador
+Biroba;43;coletor
+Zibora;54;assassino de aluguel
+Bigrin;23;matador de porco
+Zoro;28;pirate espadachin
+Biriku;34;limpador de fossa
+Zabiru;32;amolador de faca
+Balara;24;bailarina
