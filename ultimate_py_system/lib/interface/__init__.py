@@ -9,18 +9,51 @@ def line(length=30, character='-') -> str:
     return generated_line
 
 def generate_title(title:str, color:str, line_len=48) -> str:
+    """Generate system main title
+
+    Args:
+        title (str): Desired title
+        color (str): ANSI pattern text color
+        line_len (int, optional): content length. Defaults to 48.
+
+    Returns:
+        str: return styled text to be displayed
+    """
     generated_title = f'{color} {title:^{line_len}}\033[m'
     return generated_title
 
 def header(title: str, line_len=48, color='\033[m'):
+    """Prints system header
+
+    Args:
+        title (str): Desired title
+        line_len (int, optional): Content length. Defaults to 48.
+        color (str, optional): ANSI pattern text color. Defaults to '\\033[m' (none).
+    """
     print(line(line_len))
     print(generate_title(title, color, 44))
     print(line(line_len))
 
 def main_header(title:str, line_len=48, color='\033[1;32m'):
+    """Generates system main header
+
+    Args:
+        title (str): Desired title
+        line_len (int, optional): Content length. Defaults to 48.
+        color (str, optional): ANSI pattern text color. Defaults to '\\033[1;32m' (green).
+    """
     header(title, line_len, color)
 
 def read_int(message:str, error_message='Valor inválido. Tente novamente'):
+    """Reads user input until it's a valid integer
+
+    Args:
+        message (str): Message to display to user
+        error_message (str, optional): Show when user inout a not integer. Defaults to 'Valor inválido. Tente novamente' red colored.
+
+    Returns:
+        _type_: returns an integer inputted by user
+    """
     while True:
         try:
             n = int(input(message))
@@ -30,6 +63,15 @@ def read_int(message:str, error_message='Valor inválido. Tente novamente'):
             continue
 
 def read_str(message:str, error_message='Valor inválido. Tente novamente'):
+    """Reads user input until it's a valid string, empty string is considered invalid
+
+    Args:
+        message (str): Message to display to user
+        error_message (str, optional): Show when user fails to input a valid string. Defaults to 'Valor inválido. Tente novamente' red colored.
+
+    Returns:
+        _type_: striped string
+    """
     while True:
         try:
             n = str(input(message)).strip()
@@ -40,7 +82,12 @@ def read_str(message:str, error_message='Valor inválido. Tente novamente'):
             print(f'\033[31m{error_message}\033[m')
             continue
 
-def init_system():
+def init_system() -> int:
+    """Tries to open db file, if fails create a new one.
+
+    Returns:
+        _type_: flag to main options menu
+    """
     global DB_FILE
     try:
         DB_FILE = open(DB_NAME, 'r')
@@ -58,6 +105,8 @@ def init_system():
         DB_FILE.close()
 
 def display_options_menu():
+    """Display main options menu while system is running
+    """
     while True:
         options_menu()
         try:
