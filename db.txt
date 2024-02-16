@@ -6,3 +6,6 @@ Zoro;28;pirate espadachin
 Biriku;34;limpador de fossa
 Zabiru;32;amolador de faca
 Balara;24;bailarina
+3;3;3
+Pessoa x;69;frago assado
+Pessoa;33;profissão
