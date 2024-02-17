@@ -57,3 +57,11 @@ def options_menu(options: dict):
     for option, text in options.items():
         print(f'\033[32m{option} - \033[34m{text}\033[m')
     print(line(48))
+
+def print_people(people: list):
+    print(f'{"No.":<5}{"Nome":<10}{"Idade":<4}{"Profissão":>28}')
+    print(line(48))
+    for index, person in enumerate(people):
+        print(f'{(index+1):<5}{person[0]:<10}{person[1]:<4}{person[2]:>28}', end='')
+        print(line(48, '.'))
+    print(line(48))

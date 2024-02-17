@@ -1,8 +1,10 @@
-def read_int(message:str, error_message='Valor inválido. Tente novamente'):
+import math
+def read_int(message:str, range: tuple = (-math.inf, math.inf), error_message='Valor inválido. Tente novamente'):
     """Reads user input until it's a valid integer
 
     Args:
         message (str): Message to display to user
+        range (tuple, optional): Range of valid integers. Defaults to (-math.inf, math.inf).
         error_message (str, optional): Show when user inout a not integer. Defaults to 'Valor inválido. Tente novamente' red colored.
 
     Returns:
@@ -11,6 +13,8 @@ def read_int(message:str, error_message='Valor inválido. Tente novamente'):
     while True:
         try:
             n = int(input(message))
+            if range[0] > n or n > range[1]:
+                raise ValueError()
             return n
         except ValueError:
             print(f'\033[31m{error_message}\033[m')
