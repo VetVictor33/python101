@@ -1,4 +1,4 @@
-from lib.utils.colors import ANSI_colors
+from lib.utils.colors import ANSI_colors, paint_text
 
 colors = ANSI_colors()
 
@@ -59,9 +59,22 @@ def options_menu(options: dict):
     print(line(48))
 
 def print_people(people: list):
+    """Display witch people on a style matter
+
+    Args:
+        people (list): list of people organized main list with n elements, sublist organized in name, age, profession
+    """
     print(f'{"No.":<5}{"Nome":<10}{"Idade":<4}{"Profissão":>28}')
     print(line(48))
     for index, person in enumerate(people):
         print(f'{(index+1):<5}{person[0]:<10}{person[1]:<4}{person[2]:>28}', end='')
         print(line(48, '.'))
     print(line(48))
+
+def print_error(message: str):
+    """Prints the message painted in red
+
+    Args:
+        message (str): message
+    """
+    print(paint_text(message, 'red'))

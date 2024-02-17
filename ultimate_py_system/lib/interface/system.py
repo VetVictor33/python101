@@ -9,7 +9,7 @@ def init_system() -> int:
     """Tries to open db file, if fails create a new one.
 
     Returns:
-        _type_: flag to main options menu
+        int: flag to main options menu
     """
     try:
         data_manage.read_file(DB_NAME)
@@ -49,17 +49,30 @@ def display_options_menu():
             close_system()
             break
     
-def get_registered_people():
+def get_registered_people() -> int:
+    """Prints all people that is registered in the system or prints a warning informing that there are no people registered
+
+    Returns:
+        int: flag to continue or abort system run
+    """
     visual.header('Pessoas cadastradas'.upper(), color=colors["yellow"])
     try:
         people = data_manage.read_file(DB_NAME)
+        if not people:
+            visual.print_error('Não há pessoas cadastradas no SisCaP')
+            return 1
         visual.print_people(people)
         return 1
     except Exception as error:
         print('Erro ao ler o banco de dados', error)
         return 0
 
-def register_new_person():
+def register_new_person() -> int:
+    """Register new person in the SisCaP
+
+    Returns:
+        int: flag to continue or abort system run
+    """
     visual.header('Cadastrar nova pessoa'.upper(), color=colors['yellow'])
     name = data_input.read_str('Digite o nome: ').capitalize()
     age = data_input.read_int('Digite a idade: ')
@@ -72,11 +85,21 @@ def register_new_person():
         print(paint_text(f'Algo deu errado ao adicionar a nova pessoa. {ex}', 'red'))
         return 0
 
-def remove_person():
+def remove_person() -> int:
+    """Remove a person or prints a warning that there are no people registered
+
+    Returns:
+        int: flag to continue or abort system run
+    """
     visual.header('Remover pessoa'.upper(), color=colors['yellow'])
     try:
         people = data_manage.read_file(DB_NAME)
-        option = data_input.read_int('Qual o número da pessoa que você deseja deletar? ', range=(1, len(people)))
+        if not people:
+            visual.print_error('Não há pessoas cadastradas no SisCaP')
+            return 1
+        option = data_input.read_int('Qual o número da pessoa que você deseja deletar?[\'q\' p/ cancelar] ', range=(1, len(people)), escape='q')
+        if option == 0:
+            return 1
         deleted_person = people[option - 1]
         del people[option - 1]
         
@@ -87,10 +110,14 @@ def remove_person():
         print(paint_text(f'Algo deu errado ao remover a nova pessoa. {ex}', 'red'))
         return 1
 
-def close_system():
+def close_system() -> int:
+    """Prints system farewell close system by returning the close flag
+
+    Returns:
+        int: close flag
+    """
     visual.header('Sistema encerrado. O SisCaP agradece.', color=colors['yellow'])
     return 0
-
 
 AVAILABLE_OPTIONS = {
         1: 'Ver pessoas cadastradas',
